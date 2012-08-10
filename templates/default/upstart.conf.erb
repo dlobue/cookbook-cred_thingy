@@ -1,0 +1,18 @@
+
+description "aws credential provisioning service"
+author      "Dominic LoBue <dominic.lobue@gmail.com>"
+
+
+start on startup
+stop on shutdown
+
+respawn
+console log
+
+chdir <%=node.cred_thingy.dist_dir%>
+
+script
+    . deps/bin/activate
+    exec cred_thingy serve
+end script
+
