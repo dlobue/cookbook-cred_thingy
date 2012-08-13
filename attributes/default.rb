@@ -1,7 +1,7 @@
 
 include_attribute 'upstart::default'
 
-default.cred_thingy.dist_tag = '0.1.0'
+default.cred_thingy.dist_tag = 'master'
 default.cred_thingy.dist_dir = Pathname.new '/opt/cred_thingy'
 default.cred_thingy.deps_dir = Promise.new { cred_thingy.dist_dir + 'deps' }
 default.cred_thingy.conf_dir = Pathname.new '/etc/cred_thingy'
