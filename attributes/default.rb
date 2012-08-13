@@ -4,8 +4,7 @@ include_attribute 'upstart::default'
 default.cred_thingy.dist_tag = 'master'
 default.cred_thingy.dist_dir = Pathname.new '/opt/cred_thingy'
 default.cred_thingy.deps_dir = Promise.new { cred_thingy.dist_dir + 'deps' }
-default.cred_thingy.conf_dir = Pathname.new '/etc/cred_thingy'
-default.cred_thingy.config = Promise.new { cred_thingy.conf_dir + 'cred_thingy.conf' }
+default.cred_thingy.config = '/etc/cred_thingy.conf'
 
 default.cred_thingy.git_repo = 'git://github.com/dlobue/cred_thingy.git'
 

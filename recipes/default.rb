@@ -5,8 +5,6 @@ package "python-dev"
 package "libevent-dev"
 
 
-directory node.cred_thingy.conf_dir.to_s
-
 template node.cred_thingy.upstart_conf.to_s do
     source "upstart.conf.erb"
     mode "0644"
