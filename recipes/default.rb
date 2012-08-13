@@ -20,7 +20,7 @@ template node.cred_thingy.config.to_s do
 end
 
 
-git node.cred_thingy.dist_dir do
+git node.cred_thingy.dist_dir.to_s do
     repository node.cred_thingy.git_repo
     revision node.cred_thingy.dist_tag
     action [:checkout, :sync]
@@ -31,14 +31,14 @@ end
 
 execute "setup cred_thingy virtualenv" do
     command 'virtualenv --no-site-packages --distribute --prompt="(cred_thingy)" deps'
-    creates node.cred_thingy.deps_dir
-    cwd node.cred_thingy.dist_dir
+    creates node.cred_thingy.deps_dir.to_s
+    cwd node.cred_thingy.dist_dir.to_s
 end
 
 script "install cred_thingy deps" do
     action :nothing
     interpreter "bash"
-    cwd node.cred_thingy.dist_dir
+    cwd node.cred_thingy.dist_dir.to_s
     code <<-EOH
     . deps/bin/activate
     python setup.py develop
